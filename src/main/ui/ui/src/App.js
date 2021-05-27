@@ -1,37 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ActorList from "./ActorList";
+import Home from './Home';
+
+
 class App extends Component {
-    state = {
-        actors: []
-    };
-
-    async componentDidMount() {
-        const response = await fetch('/api/actors/all');
-        const body = await response.json();
-        this.setState({actors: body});
-    }
-
     render() {
-        const {actors} = this.state;
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <div className="App-intro">
-                        <h2>Actors</h2>
-                        {actors.map(actor =>
-                            <div key={actor.id}>
-                                Id: {actor.id} Name: {actor.firstName} Last Name: {actor.lastName}
-                            </div>
-                        )}
-                    </div>
-                </header>
-            </div>
-        );
+            <Router>
+                <Switch>
+                    <Route path='/' exact={true} component={Home}/>
+                    <Route path='/actors' exact={true} component={ActorList}/>
+                </Switch>
+            </Router>
+        )
     }
 }
-
 
 export default App;

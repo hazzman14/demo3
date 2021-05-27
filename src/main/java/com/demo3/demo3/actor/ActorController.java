@@ -16,7 +16,7 @@ public class ActorController {
 
     @Autowired
     private ActorRepository actorRepo;
-
+    
     @GetMapping(path="/all")
     public ResponseEntity<List<Actor>> getActors() {
         Iterable<Actor> a = actorRepo.findAll();
