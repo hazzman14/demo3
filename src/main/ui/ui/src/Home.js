@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Link } from 'react-router-dom';
-import { Button, Container } from 'reactstrap';
+import {Button, Container, Table} from 'reactstrap';
 import AppNavbar from './AppNavBar';
 
 class Home extends Component {
@@ -10,7 +10,12 @@ class Home extends Component {
             <div>
                 <AppNavbar/>
                 <Container fluid>
-                    <Button color="link"><Link to="/actors">Actors</Link></Button>
+                    <h3>Entities </h3>
+                        <Button color="link"><Link to="/actors">Actors</Link></Button>
+                    <p></p>
+                        <Button color="link"><Link to="/categories">Categories</Link></Button>
+                    <p></p>
+                        <Button color="link"><Link to="/films">Films</Link></Button>
                 </Container>
             </div>
         );

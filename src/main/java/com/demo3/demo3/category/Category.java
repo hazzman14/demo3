@@ -14,7 +14,7 @@ public class Category {
     @Id
     @Column(name="category_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long categoryId;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -30,13 +30,13 @@ public class Category {
     public Category() {
     }
 
-    public Set<Film> getFilms() {
-        return films;
-    }
-
-    public void setFilms(Set<Film> films) {
-        this.films = films;
-    }
+//    public Set<Film> getFilms() {
+//        return films;
+//    }
+//
+//    public void setFilms(Set<Film> films) {
+//        this.films = films;
+//    }
 
     public Category(String name) {
         this.name = name;
@@ -44,7 +44,7 @@ public class Category {
 
 
     public Long getCategoryId() {
-        return categoryId;
+        return id;
     }
 
     public Date getLastUpdate() {
@@ -69,7 +69,7 @@ public class Category {
     @Override
     public String toString() {
         return "Category{" +
-                "category_id=" + categoryId +
+                "category_id=" + id +
                 ", name='" + name + '\'' +
                 '}';
     }
