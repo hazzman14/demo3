@@ -5,6 +5,11 @@ import {Button, Container, Table} from 'reactstrap';
 import AppNavbar from './AppNavBar';
 
 class Home extends Component {
+
+    componentDidMount(){
+        document.title = "Testing Project"
+    }
+
     render() {
         return (
             <div>

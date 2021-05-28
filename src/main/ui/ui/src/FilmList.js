@@ -29,8 +29,12 @@ class FilmList extends Component {
                 <td style={{whiteSpace: 'nowrap'}}>{film.id}</td>
                 <td>{film.title}</td>
                 <td>{film.description}</td>
-                <td>{film.releaseYear}</td>
                 <td>{film.rating}</td>
+                <td>{film.lengthMinutes}</td>
+                <td>{film.releaseYear}</td>
+
+
+
             </tr>
         });
 
@@ -49,8 +53,9 @@ class FilmList extends Component {
                             <th>ID:</th>
                             <th>Title:</th>
                             <th>Description:</th>
-                            <th>Release Year:</th>
                             <th>Rating:</th>
+                            <th>Runtime (mins):</th>
+                            <th>Release Year:</th>
                         </tr>
                         </thead>
                         <tbody>
