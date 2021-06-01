@@ -17,6 +17,20 @@ class ActorList extends Component {
             .then(data => this.setState({actors: data}));
     }
 
+    async remove(id) {
+        await fetch(`/api/actors/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(() => {
+            let updatedActors = [...this.state.actors].filter(i => i.id !== id);
+            this.setState({actors: updatedActors});
+        });
+    }
+
+
     render() {
         const {actors, isLoading} = this.state;
 
@@ -29,6 +43,12 @@ class ActorList extends Component {
                 <td style={{whiteSpace: 'nowrap'}}>{actor.id}</td>
                 <td>{actor.firstName}</td>
                 <td>{actor.lastName}</td>
+                <td>
+                    <ButtonGroup>
+                        <Button size="sm" color="primary" tag={Link} to={"/actors/edit/" + actor.id}>Edit</Button>
+                        <Button size="sm" color="danger" onClick={() => this.remove(actor.id)}>Delete</Button>
+                    </ButtonGroup>
+                </td>
             </tr>
         });
 
@@ -37,7 +57,7 @@ class ActorList extends Component {
                 <AppNavbar/>
                 <Container fluid>
                     <div className="float-right">
-                        <Button color="success" tag={Link} to="/api/actors/create">Add Actor</Button>
+                        <Button color="success" tag={Link} to="/actors/create">Add Actor</Button>
                     </div>
                     <p></p>
                     <h3>List of Actors</h3>
